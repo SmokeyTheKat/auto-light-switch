@@ -29,7 +29,6 @@ void setLightOn() {
 	lastSensorTrigger = millis();
 	digitalWrite(relayPin, HIGH);
 	lightOn = true;
-	blink(2000);
 }
 
 void setLightOff() {
@@ -46,6 +45,7 @@ void loop() {
 
 	if (digitalRead(sensorPin) == HIGH) {
 		setLightOn();
+		blink(2000);
 	}
 
 	if (lightOn && millis() - lastSensorTrigger > onLength) {
